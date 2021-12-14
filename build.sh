@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # **** Update me when new Xcode versions are released! ****
-PLATFORM="platform=iOS Simulator,OS=14.0,name=iPhone 11 Pro Max"
+PLATFORM="platform=iOS Simulator,OS=15.0,name=iPhone 13 Pro Max"
 SDK="iphonesimulator"
 
 
@@ -29,20 +29,20 @@ if [ "$MODE" = "build" ]; then
     exit 0
 fi
 
-if [ "$MODE" = "examples" ]; then
-    echo "Building and testing all PhoneNumberKit examples."
+# if [ "$MODE" = "examples" ]; then
+#     echo "Building and testing all PhoneNumberKit examples."
 
-    for example in examples/*/; do
-        echo "Building $example."
-        xcodebuild \
-            -project "${example}Sample.xcodeproj" \
-            -scheme Sample \
-            -sdk "$SDK" \
-            -destination "$PLATFORM" \
-            build
-    done
-    trap - EXIT
-    exit 0
-fi
+#     for example in examples/*/; do
+#         echo "Building $example."
+#         xcodebuild \
+#             -project "${example}Sample.xcodeproj" \
+#             -scheme Sample \
+#             -sdk "$SDK" \
+#             -destination "$PLATFORM" \
+#             build
+#     done
+#     trap - EXIT
+#     exit 0
+# fi
 
 echo "Unrecognised mode '$MODE'."
